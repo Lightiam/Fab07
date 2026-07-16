@@ -1,0 +1,43 @@
+(kicad_sch
+  (version 20240108)
+  (generator "claude-kicad-gen")
+  (generator_version "0.1")
+  (uuid "550e8400-0000-0000-0000-000000000200")
+  (paper "A4")
+  (title_block
+    (title "Signal Routing & Management")
+    (date "2026-07-12")
+    (rev "1.0")
+  )
+
+  (lib_symbols)
+
+  (wire (pts (xy 50 50) (xy 100 50)) (stroke (width 0)))
+
+  (global_label "GND" (shape input) (at 50 50 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000201"))
+
+  (global_label "TFLN_RF_A" (shape input) (at 50 80 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000202"))
+  (global_label "TFLN_RF_B" (shape input) (at 50 100 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000203"))
+
+  (global_label "SERDES_200G_A" (shape input) (at 50 130 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000204"))
+  (global_label "SERDES_200G_B" (shape input) (at 50 150 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000205"))
+
+  (global_label "PCIE_G6_A" (shape input) (at 50 180 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000206"))
+  (global_label "PCIE_G6_B" (shape input) (at 50 200 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000207"))
+
+  (global_label "HBM4_SIDECH_A" (shape input) (at 250 80 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000208"))
+  (global_label "HBM4_SIDECH_B" (shape input) (at 250 100 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000209"))
+
+  (global_label "MGMT_A" (shape input) (at 250 130 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-00000000020a"))
+  (global_label "MGMT_B" (shape input) (at 250 150 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-00000000020b"))
+
+  (global_label "TEC_TH_A" (shape input) (at 250 180 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-00000000020c"))
+  (global_label "TEC_TH_B" (shape input) (at 250 200 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-00000000020d"))
+
+  (global_label "PD_MON_A" (shape input) (at 450 80 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-00000000020e"))
+  (global_label "PD_MON_B" (shape input) (at 450 100 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-00000000020f"))
+
+  (global_label "BIAS_TUNE_A" (shape input) (at 450 130 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000210"))
+  (global_label "BIAS_TUNE_B" (shape input) (at 450 150 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000211"))
+
+)

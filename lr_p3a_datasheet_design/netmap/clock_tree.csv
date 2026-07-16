@@ -1,0 +1,6 @@
+Source,Destination,Frequency,Standard,Notes
+12MHz XTAL,Si5395A U10,root oscillator,-,-
+Si5395A U10,PCIe REFCLK x4,100 MHz,LP-HCSL,<100fs RMS jitter (10kHz-20MHz)
+Si5395A U10,SerDes reference x1,156.25 MHz,LVPECL,high-speed SerDes
+Si5395A U10,HBM4 REFCK x4,200 MHz,LVDS 100ohm diff,routed as diff pair
+Si5395A U10,TFLN DAC trigger x1,10 MHz,CMOS,low-speed sync trigger

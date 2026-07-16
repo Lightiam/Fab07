@@ -1,0 +1,6 @@
+{
+  "board": {"design_settings": {"defaults": {}}},
+  "meta": {"filename": "LR_P3A.kicad_pro", "version": 1},
+  "net_settings": {"classes": [{"name": "Default", "clearance": 0.127}]},
+  "pcbnew": {"page_layout_descr_file": ""}
+}

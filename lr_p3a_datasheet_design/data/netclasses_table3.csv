@@ -1,0 +1,10 @@
+NetClass,RoutingLayer,Width_mm,DiffGap_mm,Clearance_mm,TargetZ,Tol
+SERDES_100G_PAM4,Stripline(In12),0.09,0.09,0.127,100 Diff,+/-5%
+PCIe_Gen6,Stripline(In12),0.12,0.18,0.120,85 Diff,+/-5%
+TFLN_RF,Stripline(In5),0.15,0.20,0.150,100 Diff,+/-5%
+TFLN_ELEC_TRANSITION,Microstrip(Top),0.09,0.127,0.100,100 Diff,+/-5%
+RF_50OHM_DIFF,Stripline(In5),0.10,0.10,0.150,100 Diff,+/-5%
+HBM4_Interposer,Stripline(In3),0.10,0.15,0.100,100 Diff,+/-5%
+single-ended_HBM4,Stripline(In3),0.10,-,0.100,50 SE,+/-5%
+USB3_USB4,Microstrip(Top),0.10,0.10,0.100,90 Diff,+/-10%
+I2C_SPI_GPIO,Any signal,0.15,-,0.150,-,-

@@ -1,0 +1,9 @@
+Pin,Signal,Type,Voltage,Function
+1,LD_ANODE_0,Power,2.5V,Laser anode (1550nm 100mW CW)
+2,LD_CATHODE_0,Ground,0V,Laser cathode return
+3,MONITOR_PD_A_0,Output,-,Back-facet monitor PD anode
+4,MONITOR_PD_C_0,Ground,0V,Back-facet monitor PD cathode
+5,TSENS_A,Output,-,NTC temp sensor +
+6,TSENS_B,Ground,0V,NTC temp sensor -
+7,TEC_VDD_P,Power,+/-5.0V,Peltier + supply
+8,TEC_VDD_N,Power,+/-5.0V,Peltier - supply

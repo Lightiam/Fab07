@@ -1,0 +1,5 @@
+Pin,Signal,Type,Voltage,Function
+1,V_BIAS,Power,-3.3V,PD reverse-bias rail
+2,RF_OUT_0_P,Output(RF),+/-100mV,Ch0 diff + HS output
+3,RF_OUT_0_N,Output(RF),+/-100mV,Ch0 diff - HS output
+4,GND_RF_DET,Ground,0V,CPW ground shield

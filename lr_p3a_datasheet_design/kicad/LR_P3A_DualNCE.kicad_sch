@@ -1,0 +1,223 @@
+(kicad_sch
+  (version 20240108)
+  (generator "claude-kicad-gen")
+  (generator_version "0.1")
+  (uuid "550e8400-e29b-41d4-a716-446655440000")
+  (paper "A4")
+  (title_block
+    (title "LR-P3A Dual-NCE Module Interface")
+    (date "2026-07-12")
+    (rev "1.0")
+    (company "LightRail")
+    (comment 1 "CPO Module with TFLN Optical Couplers")
+    (comment 2 "26 nets, 12 footprints (U101/U201 BGA-2500, U102/U202 TFLN PIC, 8× bolster)")
+    (comment 3 "Step 2: Hierarchical Schematic + ERC validation")
+  )
+
+  (lib_symbols)
+
+  (wire (pts (xy 50 50) (xy 100 50)) (stroke (width 0)))
+
+  (global_label "GND"
+    (shape input)
+    (at 50 50 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000001")
+  )
+
+  (global_label "+3V3"
+    (shape input)
+    (at 50 70 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000002")
+  )
+
+  (global_label "PWR_CORE"
+    (shape input)
+    (at 50 90 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000003")
+  )
+
+  (global_label "VDD_IO"
+    (shape input)
+    (at 50 110 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000004")
+  )
+
+  (global_label "+0V9"
+    (shape input)
+    (at 50 130 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000005")
+  )
+
+  (global_label "HBM4_VDDC"
+    (shape input)
+    (at 50 150 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000006")
+  )
+
+  (global_label "HBM4_VDDQ"
+    (shape input)
+    (at 50 170 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000007")
+  )
+
+  (global_label "HBM4_VDDQL"
+    (shape input)
+    (at 50 190 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000008")
+  )
+
+  (global_label "HBM4_VPP"
+    (shape input)
+    (at 50 210 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000009")
+  )
+
+  (global_label "THERMAL"
+    (shape input)
+    (at 50 230 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-00000000000a")
+  )
+
+  (global_label "TFLN_RF_A"
+    (shape input)
+    (at 250 50 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-00000000000b")
+  )
+
+  (global_label "TFLN_RF_B"
+    (shape input)
+    (at 250 70 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-00000000000c")
+  )
+
+  (global_label "SERDES_200G_A"
+    (shape input)
+    (at 250 90 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-00000000000d")
+  )
+
+  (global_label "SERDES_200G_B"
+    (shape input)
+    (at 250 110 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-00000000000e")
+  )
+
+  (global_label "PCIE_G6_A"
+    (shape input)
+    (at 250 130 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-00000000000f")
+  )
+
+  (global_label "PCIE_G6_B"
+    (shape input)
+    (at 250 150 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000010")
+  )
+
+  (global_label "HBM4_SIDECH_A"
+    (shape input)
+    (at 250 170 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000011")
+  )
+
+  (global_label "HBM4_SIDECH_B"
+    (shape input)
+    (at 250 190 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000012")
+  )
+
+  (global_label "MGMT_A"
+    (shape input)
+    (at 250 210 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000013")
+  )
+
+  (global_label "MGMT_B"
+    (shape input)
+    (at 250 230 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000014")
+  )
+
+  (global_label "TEC_TH_A"
+    (shape input)
+    (at 450 50 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000015")
+  )
+
+  (global_label "TEC_TH_B"
+    (shape input)
+    (at 450 70 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000016")
+  )
+
+  (global_label "PD_MON_A"
+    (shape input)
+    (at 450 90 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000017")
+  )
+
+  (global_label "PD_MON_B"
+    (shape input)
+    (at 450 110 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000018")
+  )
+
+  (global_label "BIAS_TUNE_A"
+    (shape input)
+    (at 450 130 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-000000000019")
+  )
+
+  (global_label "BIAS_TUNE_B"
+    (shape input)
+    (at 450 150 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "550e8400-0000-0000-0000-00000000001a")
+  )
+
+  (sheet
+    (at 50 300)
+    (size 150 80)
+    (stroke (width 0))
+    (fill (color 255 255 255 0))
+    (uuid "550e8400-0000-0000-0000-00000000001b")
+    (property "Sheet name" "Power Distribution" (at 50 299 0) (effects (font (size 1.27 1.27)) (justify left bottom)))
+    (property "Sheet file" "01_power.kicad_sch" (at 50 380 0) (effects (font (size 1.27 1.27)) (justify left top)))
+  )
+
+  (sheet
+    (at 250 300)
+    (size 150 80)
+    (stroke (width 0))
+    (fill (color 255 255 255 0))
+    (uuid "550e8400-0000-0000-0000-00000000001c")
+    (property "Sheet name" "Signal Routing" (at 250 299 0) (effects (font (size 1.27 1.27)) (justify left bottom)))
+    (property "Sheet file" "02_signals.kicad_sch" (at 250 380 0) (effects (font (size 1.27 1.27)) (justify left top)))
+  )
+
+)

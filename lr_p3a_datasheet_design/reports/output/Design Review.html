@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Document</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                 'Helvetica Neue', Arial, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #1a1a1a;
+    line-height: 1.6;
+    font-size: 14px;
+}
+h1 { font-size: 24px; border-bottom: 2px solid #2060c0; padding-bottom: 8px; }
+h2 { font-size: 20px; border-bottom: 1px solid #e0e0e0; padding-bottom: 6px; margin-top: 32px; }
+h3 { font-size: 16px; margin-top: 24px; }
+h4, h5, h6 { font-size: 14px; margin-top: 16px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0;
+    font-size: 13px;
+}
+th, td {
+    border: 1px solid #d0d0d0;
+    padding: 6px 10px;
+    text-align: left;
+}
+th { background: #e8e8f0; font-weight: 600; }
+tr:nth-child(even) { background: #fafafa; }
+img, svg { max-width: 100%; height: auto; margin: 16px 0; display: block; }
+code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    background: #f5f5f5;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #c04000;
+}
+pre {
+    background: #f5f5f5;
+    padding: 12px 16px;
+    border-radius: 4px;
+    overflow-x: auto;
+    border: 1px solid #e0e0e0;
+}
+pre code { background: none; padding: 0; color: #303030; }
+blockquote {
+    border-left: 3px solid #2060c0;
+    margin: 16px 0;
+    padding: 8px 16px;
+    color: #606060;
+    font-style: italic;
+}
+.caption { text-align: center; font-size: 12px; color: #606060; font-style: italic; }
+.header { color: #808080; font-size: 11px; margin-bottom: 24px; }
+.footer { color: #808080; font-size: 11px; margin-top: 40px; border-top: 1px solid #e0e0e0; padding-top: 8px; }
+hr { border: none; border-top: 1px solid #e0e0e0; margin: 24px 0; }
+ul, ol { padding-left: 24px; }
+.toc { background: #f8f8fc; border: 1px solid #e0e0e8; border-radius: 6px;
+       padding: 12px 20px; margin: 16px 0 24px; }
+.toc h3 { margin: 0 0 8px; font-size: 14px; color: #404060; }
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { padding: 2px 0; }
+.toc a { color: #2060c0; text-decoration: none; font-size: 13px; }
+.toc a:hover { text-decoration: underline; }
+@media print {
+    .toc { break-after: page; }
+    h2 { break-before: page; }
+    table { break-inside: avoid; }
+    .header, .footer { position: fixed; }
+    .header { top: 0; }
+    .footer { bottom: 0; }
+}
+</style>
+</head>
+<body>
+<nav class="toc"><h3>Contents</h3><ul><li ><a href="#section-1">LR-P3A DualNCE Rev 6.3 Photonic-Electronic Design Review Package</a></li><li ><a href="#section-2">Executive Summary</a></li><li ><a href="#section-3">Review Summary</a></li><li ><a href="#section-4">1. System Overview</a></li><li ><a href="#section-5">2. Power System Design</a></li><li style="margin-left:16px"><a href="#section-6">Power Integrity (PI) Gaps</a></li><li ><a href="#section-7">3. EMC Considerations</a></li><li ><a href="#section-8">4. Thermal Analysis</a></li><li ><a href="#section-9">5. Action Items</a></li></ul></nav>
+<h1 id="section-1">LR-P3A DualNCE Rev 6.3 Photonic-Electronic Design Review Package</h1>
+<p><strong>Project:</strong> LR-P3A Dual-NCE Co-Packaged Optics Module (BGA-2500 + TFLN Modulators) <strong>Document Revision:</strong> 1.0 <strong>Classification:</strong> Technical Release (Design Sign-off Review)</p>
+<hr>
+<h2 id="section-2">Executive Summary</h2>
+<p>This design integrates two massive BGA-2500 Neural Compute Engines (NCEs, <code>U101</code>/<code>U201</code>) operating alongside two high-bandwidth Thin-Film Lithium Niobate (TFLN) Mach-Zehnder optical modulators (<code>U102</code>/<code>U202</code>) on a 16-layer Rogers/FR-4 hybrid substrate.</p>
+<p><strong>Review Assessment:</strong> ⏳ <strong>PROVISIONALLY APPROVED (NEEDS WORK)</strong> While the critical Phase 1 high-speed RF transmission lines (PAM4 100G SERDES, PCIe Gen6, and modulator drive lines) have been successfully routed with correct calculated track widths and reference planes, the board cannot proceed to fabrication until the <strong>four critical action items</strong> (decoupling capacitors, Phase 2 routing, Gerber layer export correction, and custom rule clearance updates) are resolved.</p>
+<hr>
+<h2 id="section-3">Review Summary</h2>
+<table>
+<thead><tr><th style="text-align:left">Check Category</th><th style="text-align:left">Score / Status</th><th style="text-align:left">Details &amp; Findings</th></tr></thead>
+<tbody><tr><td style="text-align:left">**EMC Risk Assessment**</td><td style="text-align:left">80.5 / 100</td><td style="text-align:left">Blockers: 4 decoupling errors (DC-002), 1 via stitching warning (VS-001)</td></tr><tr><td style="text-align:left">**Thermal Compliance**</td><td style="text-align:left">100 / 100 (Nominal)</td><td style="text-align:left">Exposed pad via adequacy is pending active silicon thermo-mechanical modeling</td></tr><tr><td style="text-align:left">**RF Impedance Match**</td><td style="text-align:left">✅ PASS</td><td style="text-align:left">Verified microstrip and stripline geometry on Rogers 4350B layers</td></tr><tr><td style="text-align:left">**Optical Keepouts**</td><td style="text-align:left">✅ PASS</td><td style="text-align:left">Verified 2.54 mm (100 mil) copper-free rings around photonic die boundaries</td></tr></tbody>
+</table>
+<hr>
+<h2 id="section-4">1. System Overview</h2>
+<pre><code>                      +-------------------+
+                      |   12V DC Input    |
+                      +---------+---------+
+                                |
+             +------------------+------------------+
+             |                                     |
+    +--------+--------+                   +--------+--------+
+    |   NCE BGA-2500  |                   |   NCE BGA-2500  |
+    |      (U101)     |                   |      (U201)     |
+    +--------+--------+                   +--------+--------+
+             | (100G PAM4 SERDES)                  | (100G PAM4 SERDES)
+    +--------+--------+                   +--------+--------+
+    |    TFLN PIC     |                   |    TFLN PIC     |
+    |  Modulator U102 |                   |  Modulator U202 |
+    +-----------------+                   +-----------------+</code></pre>
+<p>This board acts as a high-bandwidth electro-optic interface module. The NCEs process parallel neural network weights and stream high-speed serial data to the TFLN modulators. The modulators translate the electrical signals into optical PAM4 modulations.</p>
+<ul><li><strong>Critical Interfaces:</strong> 6 differential pairs are routed:</li><li><code>SERDES_200G_A/B</code> and <code>PCIE_G6_A/B</code> on Layer 12 (<code>In12.Cu</code>), operating on Rogers RO4350B cores.</li><li><code>TFLN_RF_A/B</code> on Layer 5 (<code>In5.Cu</code>), driving the traveling-wave electrodes on the modulator dies.</li><li><strong>Photonic Constraint:</strong> To prevent optical coupling losses and optical fiber damage during alignment, a 2.54 mm mechanical and copper keepout zone is enforced around the photonic boundaries of <code>U102</code>/<code>U202</code>.</li></ul>
+<hr>
+<h2 id="section-5">2. Power System Design</h2>
+<p>The power delivery network (PDN) is structured into four primary domains:</p>
+<ol><li><code>PWR_CORE</code> (0.9V nominal): High-current core voltage for the BGA-2500 NCE cores.</li><li><code>VDD_IO</code> (1.8V nominal): Supply voltage for low-speed digital and control logic.</li><li><code>+3V3</code> (3.3V nominal): Power supply for optical thermo-electric coolers (TECs) and analog driver bias circuits.</li><li><code>+0V9</code> (0.9V nominal): Clean analog rail for NCE SERDES phase-locked loops (PLLs).</li></ol>
+<h3 id="section-6">Power Integrity (PI) Gaps</h3>
+<ul><li><strong>Missing PWR_FLAGs:</strong> All four power nets lack source definitions on the schematic sheet, triggering warning <code>RS-001</code>. This must be addressed by adding PWR_FLAG symbols to indicate that power is sourced from an external bolster or tester interface.</li><li><strong>Decoupling Starvation:</strong> No bypass or bulk capacitors are currently placed on the PCB layout. High-current transitions on the 0.9V core will result in catastrophic $L\cdot\frac{di}{dt}$ noise and rail collapse.</li></ul>
+<hr>
+<h2 id="section-7">3. EMC Considerations</h2>
+<p>The EMC risk score is currently evaluated at <strong>80.5/100</strong>. The primary issues are:</p>
+<ul><li><strong>DC-002: Lacking Decoupling Capacitors:</strong> Active ICs <code>U101</code>, <code>U201</code>, <code>U102</code>, and <code>U202</code> have no local decoupling capacitors within 10mm. Every active power pin must have local 100nF capacitors to provide a low-inductance charge reservoir.</li><li><strong>VS-001: Insufficient Via Stitching:</strong> The board has a layout surface area of 34,500 $\text{mm}^2$ but contains zero ground stitching vias. Signals transitioning between inner routing layers L5 and L12 experience return path discontinuities. Stitching vias must be placed at $\le 48\ \text{mm}$ intervals (representing $\lambda/20$ at 150 MHz) to prevent RF cavity resonance.</li></ul>
+<hr>
+<h2 id="section-8">4. Thermal Analysis</h2>
+<p>The thermal profile of this module is highly complex due to the co-existence of high-power silicon logic (NCEs, up to 100W each) and temperature-sensitive thin-film lithium niobate optical waveguides.</p>
+<ul><li><strong>Modulator Wavelength Stability:</strong> Lithium niobate waveguides shift optical phase with temperature. The design incorporates closed-loop TEC paths (<code>TEC_TH_B</code>, <code>BIAS_TUNE_B</code>) to maintain the waveguide temperature at $25.0^\circ\text{C} \pm 0.1^\circ\text{C}$.</li><li><strong>NCE Thermal Dissipation:</strong> Thermal vias must be placed under the inner rows of the BGA-2500 pads to channel heat to the bottom copper layers, where high-efficiency liquid cooling blocks will be mounted.</li><li><strong>Isolation Slots:</strong> It is recommended to route mechanical isolation routing slots (air gaps) through the FR-4 board body between the NCE BGAs and TFLN modulators to prevent lateral thermal conduction.</li></ul>
+<hr>
+<h2 id="section-9">5. Action Items</h2>
+<table>
+<thead><tr><th style="text-align:left">Item #</th><th style="text-align:left">Finding / Deviation</th><th style="text-align:left">Severity</th><th style="text-align:left">Owner</th><th style="text-align:left">Action Plan / Resolution</th><th style="text-align:left">Status</th></tr></thead>
+<tbody><tr><td style="text-align:left">**ACT-01**</td><td style="text-align:left">LGA Pad Clearance Violations on Modulators</td><td style="text-align:left">🔴 **CRITICAL**</td><td style="text-align:left">Layout Eng.</td><td style="text-align:left">Configure custom clearance rules in Board Setup to allow 0.075 mm trace-to-pad clearance inside the `U102`/`U202` footprint zones.</td><td style="text-align:left">**OPEN**</td></tr><tr><td style="text-align:left">**ACT-02**</td><td style="text-align:left">Incomplete Gerber Export Package</td><td style="text-align:left">🔴 **CRITICAL**</td><td style="text-align:left">Release Eng.</td><td style="text-align:left">Re-run Gerber extraction scripts to export `F.Cu`, `B.Cu`, solder masks (`F.Mask`/`B.Mask`), outline (`Edge.Cuts`), and mechanical drill files.</td><td style="text-align:left">**OPEN**</td></tr><tr><td style="text-align:left">**ACT-03**</td><td style="text-align:left">Lack of Decoupling Capacitors</td><td style="text-align:left">🟡 **WARNING**</td><td style="text-align:left">Design Eng.</td><td style="text-align:left">Add 100nF X7R 0402 bypass capacitors for every power pin group of `U101`/`U201` and `U102`/`U202`.</td><td style="text-align:left">**OPEN**</td></tr><tr><td style="text-align:left">**ACT-04**</td><td style="text-align:left">Unrouted Phase 2 Nets</td><td style="text-align:left">🟡 **WARNING**</td><td style="text-align:left">Layout Eng.</td><td style="text-align:left">Execute the Phase 2 routing scripts to connect `HBM4_SIDECH`, `BIAS_TUNE_B`, `PD_MON_B`, and `TEC_TH_B`.</td><td style="text-align:left">**OPEN**</td></tr><tr><td style="text-align:left">**ACT-05**</td><td style="text-align:left">Missing Power Source PWR_FLAGs</td><td style="text-align:left">🟢 **SUGGESTION**</td><td style="text-align:left">Schematic Eng.</td><td style="text-align:left">Add PWR_FLAG markers to power rails `+0V9`, `+3V3`, `PWR_CORE`, and `VDD_IO` to clear schematic ERC.</td><td style="text-align:left">**OPEN**</td></tr><tr><td style="text-align:left">**ACT-06**</td><td style="text-align:left">Add Ground Stitching Vias</td><td style="text-align:left">🟢 **SUGGESTION**</td><td style="text-align:left">Layout Eng.</td><td style="text-align:left">Place a matrix of GND stitching vias around the high-speed routing zones to maintain return path continuity.</td><td style="text-align:left">**OPEN**</td></tr></tbody>
+</table>
+</body>
+</html>

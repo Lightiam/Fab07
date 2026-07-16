@@ -1,0 +1,30 @@
+Layer,Type,Material,Thickness_mm,CuWeight,Role
+Top,Signal/Pad,Rogers RO4350B,0.070,2oz,"RF microstrip, decoupling escapes"
+D1,Prepreg,Rogers RO4350B,0.100,-,HF RF isolation
+L2,Ground,Cu foil,0.0175,0.5oz,Reference GND
+D2,Core,High-Tg FR-4,0.150,-,Structural core
+L3,Signal,Cu foil,0.0175,0.5oz,I2C/SPI/BMC low-speed
+D3,Prepreg,Rogers RO4350B,0.100,-,RF coupling suppression
+L4,Ground,Cu foil,0.0175,0.5oz,Reference GND
+D4,Core,High-Tg FR-4,0.200,-,Hi-Tg isolation
+L5,Signal/RF,Cu foil,0.0175,0.5oz,Low-jitter clock dist
+D5,Prepreg,Rogers RO4350B,0.100,-,HF reference spacing
+L6,Power,Cu foil,0.070,2oz,+3.3V/+1.8V AUX plane
+D6,Core,High-Tg FR-4,0.250,-,HV isolation
+L7,Ground,Cu foil,0.070,2oz,Heavy GND shield
+D7,Prepreg,High-Tg FR-4,0.120,-,Power loop decoupling
+L8,Power,Cu foil,0.070,2oz,+12V main input plane
+D8,Core,High-Tg FR-4,0.250,-,DC-DC isolation
+L9,Ground,Cu foil,0.070,2oz,Heavy GND reference
+D9,Prepreg,High-Tg FR-4,0.120,-,Multi-plane coupling barrier
+L10,Power,Cu foil,0.070,2oz,VCORE 0.8V heavy plane 1
+D10,Core,High-Tg FR-4,0.250,-,Core voltage plane spacing
+L11,Ground,Cu foil,0.0175,0.5oz,Reference GND
+D11,Prepreg,Rogers RO4350B,0.100,-,Signal reference isolation
+L12,Signal/HS,Cu foil,0.0175,0.5oz,PCIe Gen5/6 TX/RX stripline
+D12,Core,High-Tg FR-4,0.150,-,Signal-power isolation
+L13,Ground,Cu foil,0.0175,0.5oz,Reference GND
+D13,Prepreg,Rogers RO4350B,0.100,-,Stripline reference spacing
+L14,Power,Cu foil,0.070,2oz,VCORE 0.8V heavy plane 2
+D14,Prepreg,High-Tg FR-4,0.100,-,GND return loop decoupling
+Bottom,Signal/Pad,Rogers RO4350B,0.070,2oz,"Cap fanout, DrMOS vertical taps"

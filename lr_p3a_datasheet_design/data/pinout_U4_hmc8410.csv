@@ -1,0 +1,9 @@
+Pin,Signal,Type,Voltage,Function
+1,RF_IN_P,Input(RF),+/-1.5V,HS RF+ input
+2,RF_IN_N,Input(RF),+/-1.5V,HS RF- input
+3,RF_OUT_P,Output(RF),+/-1.8V,HS RF+ out (to U1 electrode)
+4,RF_OUT_N,Output(RF),+/-1.8V,HS RF- out
+5,VDD,Power,3.3V,Drain bias supply
+6,VGG1,Input(DC),0..-2V,Gate bias tune 1
+7,VGG2,Input(DC),0..-2V,Gate bias tune 2
+8,DET_GND,Ground,0V,Central thermal pad (via-stitch to B.Cu)
