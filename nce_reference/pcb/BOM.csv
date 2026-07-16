@@ -1,0 +1,18 @@
+Ref,Qty,Designator Pattern,Description,Representative Part Number,Manufacturer,Package,Notes
+NCE-ASIC,2,U1/U2,"NCE ASIC die (custom tape-out, 128-lane SIMD + spiking dispatcher + neuron block)",LightRail-NCE-Rev1,LightRail AI (custom),"BGA, ~15x15mm, 400-600 ball",One per ALNODE (X2 board = 2 NCE nodes)
+TFLN-PIC,1,U3,TFLN photonic integrated circuit - electro-optic modulator array (128 ch),Representative: HyperLight HL-EO1000 class thin-film LiNbO3 modulator,HyperLight (or equiv. TFLN foundry),"Custom PIC, edge-coupled",Center block on board; shared by both NCE nodes
+LASER-SRC,1,U4,External CW laser source feeding TFLN PIC (off-die, fiber or on-board),Representative: II-VI/Coherent DFB laser module,II-VI Coherent,Butterfly/pigtailed module,Not populated on digital PCB - fiber-coupled off-board or on daughter card
+RF-DRV,8,U5-U12,TFLN differential RF driver IC (50 ohm, drives GSGSG electrodes),Representative: MACOM MAOM-011118,MACOM,QFN/BGA RF package,4 per NCE node (matches 4 satellite ICs flanking each BGA in board photo)
+BIAS-DAC,8,U13-U20,12-bit bias/calibration DAC for TFLN quiescent point + 8-neuron thresholds,AD5761R,Analog Devices,TSSOP-16,Shared use: neuron threshold + TFLN bias trim
+COMPARATOR,8,U21-U28,High-speed comparator for neuron feedback / photodiode bias-tap readback,TLV3501,Texas Instruments,SOT-23-5,Feeds SPI-readable status register
+PD-TAP,2,PD1/PD2,InGaAs photodiode tap for TFLN bias servo loop,G12180-003A,Hamamatsu,TO-46 or surface mount,One per TFLN channel group; closes bias-servo loop with BIAS-DAC/COMPARATOR
+SPI-ISO,2,U29/U30,Isolated SPI level shifter/buffer for calibration bus,ISO7741,Texas Instruments,SOIC-16,Optional if SPI domain requires galvanic isolation from analog bias section
+CONN-HDR-L,2,J1/J2,Left-edge digital breakout header (SPI/status/debug),Representative: Samtec ERM8-020,Samtec,2x20 SMT header,Matches left-column header rows in board photo
+CONN-HDR-R,2,J3/J4,Right-edge digital breakout header (SPI/status/debug),Representative: Samtec ERM8-020,Samtec,2x20 SMT header,Matches right-column header rows in board photo
+CONN-PWR,2,J5/J6,Power input connector (per node),Representative: Molex Micro-Fit 3.0,Molex,4-pin,Bottom-left/right small connector blocks in photo
+CONN-FIBER,4,J7-J10,Fiber pigtail / optical alignment connector for TFLN PIC I/O,Representative: US Conec MT or Diamond E-2000,US Conec / Diamond,MT ferrule or LC,Aligns with "TFLN/ALIGN" pads at top-center of board
+XTAL,2,X1/X2,Reference oscillator for NCE system clock,Representative: SiTime SiT8208,SiTime,2.5x2.0mm SMD,One per NCE node
+CAP-DECAP,~200,C1-C200,Decoupling capacitors (0.1uF/1uF/10uF mix) for NCE core, RF driver, DAC rails,Standard X7R/X5R ceramic,Murata/TDK,0402/0603,Distributed per power domain
+FERRITE,16,FB1-FB16,Ferrite bead isolation between digital and analog/RF bias rails,BLM18PG221SN1,Murata,0603,Placed at digital/analog power domain boundary
+MOUNT-HOLE,6,MH1-MH6,Board mounting holes (matches 6 plated holes in board photo corners + edges),M3 plated through-hole,N/A,3.2mm drill,Corner x4 + mid-left/right x2
+PCB-SUB,1,-,Hybrid PCB substrate: RF section + digital section,RO4350B (RF zones) + Isola 370HR (digital zones),Rogers / Isola,12-layer hybrid stackup,See PCB_CHARACTERISTICS.md for stackup detail

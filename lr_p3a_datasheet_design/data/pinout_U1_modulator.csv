@@ -1,0 +1,18 @@
+Pin,Signal,Type,Voltage,Function
+1,RF_IN_0_P,Input(RF),+/-1.5V,Ch0 RF+ drive (100ohm)
+2,RF_IN_0_N,Input(RF),+/-1.5V,Ch0 RF- drive (100ohm)
+3,RF_GND_0,Ground,0V,Ch0 CPW shield ground
+4,RF_IN_1_P,Input(RF),+/-1.5V,Ch1 RF+ drive
+5,RF_IN_1_N,Input(RF),+/-1.5V,Ch1 RF- drive
+6,RF_GND_1,Ground,0V,Ch1 CPW shield ground
+7,BIAS_TUNE_0,Input(DC),0-5V,Ch0 DC phase-bias tune
+8,BIAS_TUNE_1,Input(DC),0-5V,Ch1 DC phase-bias tune
+9,VCC_BIAS,Power,3.3V,Core bias supply
+10,VCC_RF_TERM,Power,0.9V,TW RF electrode terminate bias
+11,TEC_ANODE,Power,+/-5.0V,TEC positive drive
+12,TEC_CATHODE,Power,+/-5.0V,TEC negative drive
+13,THERM_SENS_P,Output(Ana),-,Thermistor 10k positive
+14,THERM_SENS_N,Ground,0V,Thermistor negative return
+15,PD_MON_0,Output(Ana),0-100uA,Optical tap monitor 0
+16,PD_MON_1,Output(Ana),0-100uA,Optical tap monitor 1
+17,GND_DC,Ground,0V,Analog/DC ground

@@ -1,0 +1,28 @@
+(kicad_sch
+  (version 20240108)
+  (generator "claude-kicad-gen")
+  (generator_version "0.1")
+  (uuid "550e8400-0000-0000-0000-000000000100")
+  (paper "A4")
+  (title_block
+    (title "Power Distribution")
+    (date "2026-07-12")
+    (rev "1.0")
+  )
+
+  (lib_symbols)
+
+  (wire (pts (xy 50 50) (xy 100 50)) (stroke (width 0)))
+
+  (global_label "GND" (shape input) (at 50 50 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000101"))
+  (global_label "+3V3" (shape input) (at 50 70 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000102"))
+  (global_label "PWR_CORE" (shape input) (at 50 90 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000103"))
+  (global_label "VDD_IO" (shape input) (at 50 110 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000104"))
+  (global_label "+0V9" (shape input) (at 50 130 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000105"))
+  (global_label "HBM4_VDDC" (shape input) (at 50 150 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000106"))
+  (global_label "HBM4_VDDQ" (shape input) (at 50 170 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000107"))
+  (global_label "HBM4_VDDQL" (shape input) (at 50 190 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000108"))
+  (global_label "HBM4_VPP" (shape input) (at 50 210 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-000000000109"))
+  (global_label "THERMAL" (shape input) (at 50 230 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "550e8400-0000-0000-0000-00000000010a"))
+
+)

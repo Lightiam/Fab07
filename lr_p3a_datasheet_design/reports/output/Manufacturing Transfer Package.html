@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Document</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                 'Helvetica Neue', Arial, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #1a1a1a;
+    line-height: 1.6;
+    font-size: 14px;
+}
+h1 { font-size: 24px; border-bottom: 2px solid #2060c0; padding-bottom: 8px; }
+h2 { font-size: 20px; border-bottom: 1px solid #e0e0e0; padding-bottom: 6px; margin-top: 32px; }
+h3 { font-size: 16px; margin-top: 24px; }
+h4, h5, h6 { font-size: 14px; margin-top: 16px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0;
+    font-size: 13px;
+}
+th, td {
+    border: 1px solid #d0d0d0;
+    padding: 6px 10px;
+    text-align: left;
+}
+th { background: #e8e8f0; font-weight: 600; }
+tr:nth-child(even) { background: #fafafa; }
+img, svg { max-width: 100%; height: auto; margin: 16px 0; display: block; }
+code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    background: #f5f5f5;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #c04000;
+}
+pre {
+    background: #f5f5f5;
+    padding: 12px 16px;
+    border-radius: 4px;
+    overflow-x: auto;
+    border: 1px solid #e0e0e0;
+}
+pre code { background: none; padding: 0; color: #303030; }
+blockquote {
+    border-left: 3px solid #2060c0;
+    margin: 16px 0;
+    padding: 8px 16px;
+    color: #606060;
+    font-style: italic;
+}
+.caption { text-align: center; font-size: 12px; color: #606060; font-style: italic; }
+.header { color: #808080; font-size: 11px; margin-bottom: 24px; }
+.footer { color: #808080; font-size: 11px; margin-top: 40px; border-top: 1px solid #e0e0e0; padding-top: 8px; }
+hr { border: none; border-top: 1px solid #e0e0e0; margin: 24px 0; }
+ul, ol { padding-left: 24px; }
+.toc { background: #f8f8fc; border: 1px solid #e0e0e8; border-radius: 6px;
+       padding: 12px 20px; margin: 16px 0 24px; }
+.toc h3 { margin: 0 0 8px; font-size: 14px; color: #404060; }
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { padding: 2px 0; }
+.toc a { color: #2060c0; text-decoration: none; font-size: 13px; }
+.toc a:hover { text-decoration: underline; }
+@media print {
+    .toc { break-after: page; }
+    h2 { break-before: page; }
+    table { break-inside: avoid; }
+    .header, .footer { position: fixed; }
+    .header { top: 0; }
+    .footer { bottom: 0; }
+}
+</style>
+</head>
+<body>
+<nav class="toc"><h3>Contents</h3><ul><li ><a href="#section-1">LR-P3A DualNCE Rev 6.3 Photonic &amp; Electronic Manufacturing Transfer Package</a></li><li ><a href="#section-2">Assembly Overview</a></li><li style="margin-left:16px"><a href="#section-3">Photonic &amp; RF Assembly Requirements</a></li><li ><a href="#section-4">PCB Fabrication Notes</a></li><li style="margin-left:16px"><a href="#section-5">Hybrid Stackup and Dielectric Profile</a></li><li ><a href="#section-6">Assembly Instructions</a></li><li style="margin-left:16px"><a href="#section-7">Phase 1: Electronic Assembly (SMT Reflow)</a></li><li style="margin-left:16px"><a href="#section-8">Phase 2: Photonic Assembly (Optical Packaging)</a></li><li ><a href="#section-9">Production Test Procedures</a></li><li style="margin-left:16px"><a href="#section-10">Test 1: DC Power Rail Check (Pre-Power Verification)</a></li><li style="margin-left:16px"><a href="#section-11">Test 2: Active TEC Loop and Thermal Regulation Check</a></li><li style="margin-left:16px"><a href="#section-12">Test 3: Optical Bias Calibration and DC Tuning Sweep</a></li><li style="margin-left:16px"><a href="#section-13">Test 4: High-Speed Electro-Optic RF Loopback</a></li><li ><a href="#section-14">Appendix A: Optical Fiber Handling &amp; Routing</a></li><li style="margin-left:16px"><a href="#section-15">Fiber Bend Radius Guidelines</a></li></ul></nav>
+<h1 id="section-1">LR-P3A DualNCE Rev 6.3 Photonic &amp; Electronic Manufacturing Transfer Package</h1>
+<p><strong>Project:</strong> LR-P3A Dual-NCE Module Interface (Rogers/FR-4 16-Layer Hybrid Stackup) <strong>Document Revision:</strong> 1.0 <strong>Classification:</strong> Technical Release (Ready for Fab)</p>
+<hr>
+<h2 id="section-2">Assembly Overview</h2>
+<table>
+<thead><tr><th style="text-align:left">Metric</th><th style="text-align:left">Count / Specification</th></tr></thead>
+<tbody><tr><td style="text-align:left">**Total Components**</td><td style="text-align:left">12 Placed Footprints</td></tr><tr><td style="text-align:left">**Active Silicon Devices**</td><td style="text-align:left">2× Neural Compute Engines (NCE) BGA-2500 (`U101`, `U201`)</td></tr><tr><td style="text-align:left">**Active Photonic Devices**</td><td style="text-align:left">2× Thin-Film Lithium Niobate (TFLN) Modulators (`U102`, `U202`)</td></tr><tr><td style="text-align:left">**Mechanical Subsystems**</td><td style="text-align:left">8× High-Load Bolster Mounting Blocks (`BH1` through `BH8`)</td></tr><tr><td style="text-align:left">**Unique Part Count**</td><td style="text-align:left">3 Unique Footprints / MPNs</td></tr><tr><td style="text-align:left">**Solder Alloy Requirement**</td><td style="text-align:left">Lead-Free SAC305 (Sn96.5 / Ag3.0 / Cu0.5)</td></tr><tr><td style="text-align:left">**Reflow Profile Category**</td><td style="text-align:left">J-STD-020E Class Lead-Free (Peak Temp 245°C, Nitrogen Atmosphere)</td></tr><tr><td style="text-align:left">**ESD Class**</td><td style="text-align:left">Class 3B (&gt;8kV HBM) for NCE BGAs; Class 0 (&lt;100V HBM) for TFLN RF Ports</td></tr></tbody>
+</table>
+<h3 id="section-3">Photonic &amp; RF Assembly Requirements</h3>
+<ul><li><strong>Electrostatic Sensitivity (Class 0 RF Ports):</strong> The TFLN optical modulator RF inputs are directly coupled to high-speed optical waveguides without internal ESD clamp diodes. Assemblers MUST use full dissipative work surfaces, active ionizing blowers, and grounded wrist straps at all times.</li><li><strong>Optical Facet Protection:</strong> Modulators <code>U102</code> and <code>U202</code> have exposed optical facets on their longitudinal edges. Do NOT touch, clean, or blow compressed air on these facets unless using class-100 cleanroom-compliant optical grade swabs with 99.9% anhydrous isopropyl alcohol (IPA).</li><li><strong>High-Speed Co-Packaging:</strong> The interface between the NCE BGA and the TFLN modulators contains ultra-dense RF differential pairs. Component placement must be verified to within $\pm 10\ \mu\text{m}$ to maintain alignment of the high-frequency breakout vias.</li></ul>
+<hr>
+<h2 id="section-4">PCB Fabrication Notes</h2>
+<table>
+<thead><tr><th style="text-align:left">Parameter</th><th style="text-align:left">Fabrication Value / Spec</th><th style="text-align:left">Compliance Standard</th></tr></thead>
+<tbody><tr><td style="text-align:left">**Board Dimensions**</td><td style="text-align:left">230.0 mm × 150.0 mm ($\pm 0.1\ \text{mm}$)</td><td style="text-align:left">IPC-6012 Class 3</td></tr><tr><td style="text-align:left">**Copper Layer Count**</td><td style="text-align:left">16 Copper Layers (14 inner signal/plane, 2 outer signal/silkscreen)</td><td style="text-align:left">IPC-4101B / Rogers</td></tr><tr><td style="text-align:left">**Board Thickness**</td><td style="text-align:left">1.60 mm nominal ($\pm 10\%$)</td><td style="text-align:left">IPC-A-600 Class 3</td></tr><tr><td style="text-align:left">**Surface Finish**</td><td style="text-align:left">Electroless Nickel Immersion Gold (ENIG) (Au: $0.05-0.1\ \mu\text{m}$, Ni: $3-6\ \mu\text{m}$)</td><td style="text-align:left">IPC-4552</td></tr><tr><td style="text-align:left">**Minimum Trace / Space**</td><td style="text-align:left">Outer layers: 0.15 mm; Inner Layer 12: 0.09 mm / 0.09 mm spacing</td><td style="text-align:left">HDI Standard</td></tr><tr><td style="text-align:left">**Minimum Drill / Via**</td><td style="text-align:left">0.20 mm mechanical drill (0.35 mm pad); via-in-pad filled and capped</td><td style="text-align:left">IPC-4761 Type VII</td></tr><tr><td style="text-align:left">**Solder Mask**</td><td style="text-align:left">Matte Green, liquid photoimageable (LPI), $15\ \mu\text{m}$ min thickness</td><td style="text-align:left">IPC-SM-840 Class H</td></tr><tr><td style="text-align:left">**Silkscreen**</td><td style="text-align:left">High-Contrast White, non-conductive epoxy ink</td><td style="text-align:left">—</td></tr><tr><td style="text-align:left">**Impedance Coupon**</td><td style="text-align:left">Type VII coupon required on panels for 85Ω / 100Ω differential verification</td><td style="text-align:left">IPC-2141A</td></tr></tbody>
+</table>
+<h3 id="section-5">Hybrid Stackup and Dielectric Profile</h3>
+<p>This board utilizes a hybrid stackup to balance mechanical rigidity, cost, and high-frequency performance:</p>
+<ul><li><strong>RF Core Layers (L4/L5 and L12/L13):</strong> Rogers RO4350B hydrocarbon ceramic laminate (dielectric constant $\epsilon_r = 3.48$, loss tangent $\tan\delta = 0.0037$ at 10 GHz) is used as the core material.</li><li>Layer 5 (<code>In5.Cu</code>) contains <code>TFLN_RF_A/B</code> differential traces (0.15 mm width, 0.15 mm gap) referenced to solid L6 GND.</li><li>Layer 12 (<code>In12.Cu</code>) contains <code>SERDES_200G_A/B</code> (0.09 mm width, 0.09 mm gap) and <code>PCIE_G6_A/B</code> (0.12 mm width, 0.12 mm gap) referenced to L11 GND and L13 PWR_CORE planes.</li><li><strong>Low-Speed Core Layers:</strong> Standard high-Tg FR-4 (Isola 370HR or equivalent, $\epsilon_r = 4.05$) is used for non-critical routing and plane cores to ensure structural stability.</li><li><strong>Controlled-Impedance Tolerances:</strong> Strict $\pm 7\%$ impedance tolerance is enforced on all routed differential nets. Fabrication house must supply test reports for all impedance coupons.</li></ul>
+<hr>
+<h2 id="section-6">Assembly Instructions</h2>
+<h3 id="section-7">Phase 1: Electronic Assembly (SMT Reflow)</h3>
+<ol><li><strong>Solder Paste Application:</strong> Type 4 or Type 5 lead-free SAC305 solder paste is printed using a 4-mil laser-cut stencil. For the fine-pitch TFLN modulators (<code>U102</code>, <code>U202</code> with 0.375 mm pitch and 0.300 mm pad width), a nano-coated stencil is mandatory to ensure clean paste release and prevent solder bridging.</li><li><strong>Component Placement:</strong></li></ol>
+<ul><li>High-accuracy pick-and-place is required for the BGA-2500 modules (<code>U101</code>, <code>U201</code>) and the TFLN modulators (<code>U102</code>, <code>U202</code>).</li><li>Verify alignment marks (fiducials) at all four corners of the board prior to placement.</li></ul>
+<ol><li><strong>Reflow Profile:</strong></li></ol>
+<ul><li>Nitrogen purge ($O_2 &lt; 100\ \text{ppm}$) is required during reflow to prevent copper oxidation on micro-vias.</li><li>Peak temperature must be controlled between $240^\circ\text{C}$ and $245^\circ\text{C}$, with time-above-liquidus ($217^\circ\text{C}$) maintained between 60 and 90 seconds.</li></ul>
+<ol><li><strong>Post-Reflow Inspection:</strong></li></ol>
+<ul><li>Automated Optical Inspection (AOI) is required for outer joints.</li><li>3D X-Ray Inspection (AXI) is mandatory for the BGA-2500 arrays to verify that there are no voids exceeding 10% of the joint volume, and no head-in-pillow (HIP) defects.</li></ul>
+<h3 id="section-8">Phase 2: Photonic Assembly (Optical Packaging)</h3>
+<ol><li><strong>Fiber Alignment Keepout Enforcement:</strong></li></ol>
+<ul><li>Confirm that the <strong>2.54 mm (100 mil)</strong> keepout zones around the modulator facets on all copper and mask layers are completely free of solder residue, flux, or stray component pads.</li></ul>
+<ol><li><strong>Optical Pigtailing (Fiber Array Attachment):</strong></li></ol>
+<ul><li>Optical fiber arrays (PM/SM fibers) must be active-aligned to the TFLN optical waveguides.</li><li>An external optical light source (1550 nm laser) is launched into the input fiber while monitoring the output power. Align the fiber array using hexapod micropositioners to find the peak transmission point (insertion loss $&lt; 1.5\ \text{dB}$).</li></ul>
+<ol><li><strong>Epoxy Curing:</strong></li></ol>
+<ul><li>Dispense UV-curable, low-shrinkage optical adhesive (e.g., Norland NOA 68 or Epotek OG142-87) at the silicon-fiber interface.</li><li>Cure using a UV lamp ($365\ \text{nm}$, minimum intensity $100\ \text{mW/cm}^2$) for 30 seconds, followed by a thermal post-cure at $80^\circ\text{C}$ for 1 hour to stabilize the bond.</li></ul>
+<ol><li><strong>Strain Relief:</strong></li></ol>
+<ul><li>Place the fiber sheath in the dedicated guide slot on the bolster mounting block and lock it using a non-outgassing silicone clamp to prevent physical pull forces from transferring directly to the delicate epoxy joint.</li></ul>
+<hr>
+<h2 id="section-9">Production Test Procedures</h2>
+<h3 id="section-10">Test 1: DC Power Rail Check (Pre-Power Verification)</h3>
+<ul><li><strong>Goal:</strong> Verify that no dead shorts exist on critical low-voltage power networks before applying power.</li><li><strong>Procedure:</strong> Measure resistance to GND at the input test points for each rail using a digital multimeter:</li><li><code>PWR_CORE</code> (0.9V nominal): Expected resistance $&gt; 50\ \Omega$ (unpowered).</li><li><code>VDD_IO</code> (1.8V nominal): Expected resistance $&gt; 200\ \Omega$.</li><li><code>+3V3</code> (3.3V nominal): Expected resistance $&gt; 1\ \text{k}\Omega$.</li><li><code>+0V9</code> (0.9V analog rail): Expected resistance $&gt; 100\ \Omega$.</li><li><strong>Fail Criterion:</strong> Any rail measuring $&lt; 5\ \Omega$ indicates a solder bridge or shorted decoupling capacitor under a BGA, and must be sent to debug/rework immediately.</li></ul>
+<h3 id="section-11">Test 2: Active TEC Loop and Thermal Regulation Check</h3>
+<ul><li><strong>Goal:</strong> Verify function of the thermo-electric cooler (TEC) loop for the TFLN modulators.</li><li><strong>Procedure:</strong></li></ul>
+<ol><li>Power up the board's 3.3V and 1.8V rails.</li><li>Measure the voltage across the thermistor pins on net <code>TEC_TH_B</code>. The voltage should correspond to a thermistor resistance of $10\ \text{k}\Omega$ at room temperature ($25^\circ\text{C}$).</li><li>Turn on the TEC driver control loop. Verify that the temperature stabilizes at $25.0^\circ\text{C}$ within $\pm 0.1^\circ\text{C}$ under a thermal load from the active NCE processors.</li></ol>
+<ul><li><strong>Fail Criterion:</strong> Thermal drift $&gt; 0.5^\circ\text{C}$ over a 5-minute window, or TEC driver current saturation ($&gt; 1.5\ \text{A}$).</li></ul>
+<h3 id="section-12">Test 3: Optical Bias Calibration and DC Tuning Sweep</h3>
+<ul><li><strong>Goal:</strong> Verify tuning of the Mach-Zehnder modulator's operating point.</li><li><strong>Procedure:</strong></li></ul>
+<ol><li>Launch 1550 nm laser light into the modulator input port.</li><li>Sweep the DC bias control voltage on net <code>BIAS_TUNE_B</code> from $-5\ \text{V}$ to $+5\ \text{V}$ using the on-board DAC.</li><li>Monitor the output optical power using a photodiode on the output fiber. Verify the optical transmission trace shows a clean cosine squared curve.</li><li>Measure the Half-Wave Voltage ($V_\pi$) and verify it is $&lt; 4.5\ \text{V}$.</li></ol>
+<ul><li><strong>Fail Criterion:</strong> $V_\pi &gt; 5.0\ \text{V}$, or extinction ratio (ratio between peak transmission and minimum transmission) $&lt; 20\ \text{dB}$.</li></ul>
+<h3 id="section-13">Test 4: High-Speed Electro-Optic RF Loopback</h3>
+<ul><li><strong>Goal:</strong> Verify PAM4 100 Gbps channel integrity on the differential transmission lines.</li><li><strong>Procedure:</strong></li></ul>
+<ol><li>Inject a $53.125\ \text{GBaud}$ PAM4 PRBS31Q electrical signal into the BGA transmitter pins.</li><li>Drive the TFLN modulator through the routed RF transmission lines (<code>TFLN_RF_A/B</code> on Layer 5).</li><li>Receive the modulated optical signal on an optical sampling oscilloscope.</li><li>Verify that the optical eye diagram has a Transmitter and Dispersion Eye Closure (TDECQ) value $&lt; 3.2\ \text{dB}$ and outer optical modulation amplitude (OMA) meets spec.</li></ol>
+<ul><li><strong>Fail Criterion:</strong> TDECQ $&gt; 3.4\ \text{dB}$ or bit error rate (BER) before forward error correction (pre-FEC BER) $&gt; 1 \times 10^{-4}$.</li></ul>
+<hr>
+<h2 id="section-14">Appendix A: Optical Fiber Handling &amp; Routing</h2>
+<h3 id="section-15">Fiber Bend Radius Guidelines</h3>
+<p>Single-mode and polarization-maintaining fibers exiting the TFLN modulators have a core diameter of $9\ \mu\text{m}$ and a cladding diameter of $125\ \mu\text{m}$.</p>
+<ul><li><strong>Maximum Allowable Tension:</strong> $5.0\ \text{N}$ (never pull on raw fiber leads).</li><li><strong>Minimum Bend Radius (Long Term):</strong> <strong>15.0 mm</strong>. Any bend radius tighter than 15.0 mm will introduce severe bending loss ($&gt; 0.1\ \text{dB/turn}$) and create micro-cracks in the silica core, leading to catastrophic fiber failure over time.</li><li><strong>Minimum Bend Radius (Short Term/Storage):</strong> 30.0 mm.</li></ul>
+<pre><code>       Correct Bend (R &gt; 15mm)               Incorrect Bend (R &lt; 15mm)
+            ___________                            ___________
+          /             \                        /      |      \
+        /                 \                    /        |        \
+       |      R &gt; 15mm     |                  |   R &lt; 15mm (CRITICAL!)
+       |                   |                  |         |</code></pre>
+<ul><li><strong>Routing Path Enforcement:</strong> Fiber leads must be routed through the dedicated routing guides on the PCB assembly tray. Do not pinch, zip-tie, or route fibers over sharp component corners (such as the edges of the bolster blocks or active shielding cages).</li></ul>
+</body>
+</html>

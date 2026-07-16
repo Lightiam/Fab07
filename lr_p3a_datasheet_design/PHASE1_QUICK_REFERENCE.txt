@@ -1,0 +1,70 @@
+================================================================================
+PHASE 1 ROUTING QUICK REFERENCE GUIDE (LR-P3A DualNCE Rev 6.3)
+================================================================================
+
+Keep this file open in your terminal / editor pane while routing in KiCad.
+
+--------------------------------------------------------------------------------
+1. CRITICAL NET SPECIFICATIONS (PHASE 1)
+--------------------------------------------------------------------------------
+
+* Net Class: SERDES_200G
+  - Nets: SERDES_200G_A_P, SERDES_200G_A_N, SERDES_200G_B_P, SERDES_200G_B_N
+  - Routing Layer: In12.Cu (L12) - Stripline channel
+  - Trace Width (W): 0.09 mm
+  - Differential Gap (G): 0.09 mm
+  - Clearance: 0.127 mm
+  - Target Impedance: 100Ω ±5% (95Ω to 105Ω)
+  - Max Intra-pair Skew: ±0.3 mm (Length matching tolerance)
+  - GND Shielding Vias: Spacing ≤ 2.5 mm along the length of the pair
+
+* Net Class: PCIE_G6
+  - Nets: PCIE_G6_A_P, PCIE_G6_A_N, PCIE_G6_B_P, PCIE_G6_B_N
+  - Routing Layer: In12.Cu (L12) - Stripline channel
+  - Trace Width (W): 0.12 mm
+  - Differential Gap (G): 0.18 mm
+  - Clearance: 0.120 mm
+  - Target Impedance: 85Ω ±5% (80.75Ω to 89.25Ω)
+  - Max Intra-pair Skew: ±0.5 mm (Length matching tolerance)
+  - GND Shielding Vias: Spacing ≤ 3.0 mm along the length of the pair
+
+* Net Class: TFLN_RF
+  - Nets: TFLN_RF_A_P, TFLN_RF_A_N, TFLN_RF_B_P, TFLN_RF_B_N
+  - Routing Layer: In5.Cu (L5) - Isolated stripline channel
+  - Trace Width (W): 0.15 mm
+  - Differential Gap (G): 0.20 mm
+  - Clearance: 0.150 mm
+  - Target Impedance: 100Ω ±5% (95Ω to 105Ω)
+  - Max Intra-pair Skew: ±0.5 mm (Length matching tolerance)
+  - Isolation Distance: Keep ≥ 1.0 mm away from SERDES/PCIE digital lines
+  - GND Shielding Vias: Spacing ≤ 3.0 mm along the length of the pair
+
+--------------------------------------------------------------------------------
+2. KEY BOARD REFERENCE DATA
+--------------------------------------------------------------------------------
+* Total Copper Layers: 16
+* GND Reference Plane: Layer 8 (In7.Cu) - 100% coverage
+* PWR_CORE Plane: Layer 13 (In12.Cu) - ~80% coverage (keep out of TFLN)
+* High-Speed Vias:
+  - Drill: 0.3 mm
+  - Outer Pad: 0.6 mm
+  - Back-drill Depth: ≤ 0.127 mm (stub removal up to L14/L15 reference planes)
+
+--------------------------------------------------------------------------------
+3. RECOMMENDED KICAD SHORTCUTS & HOTKEYS
+--------------------------------------------------------------------------------
+* X             - Begin Interactive Track Routing / Route differential pair
+* L             - Open Select Layer Dialog (In7.Cu for GND, In12.Cu for PWR)
+* V             - Place a Via (during routing or for stitching)
+* E             - Edit Properties of selected item (trace, via, footprint)
+* B             - Fill / Re-fill all zone polygons (re-pours GND & PWR planes)
+* Shift+Ctrl+I  - Run Design Rule Check (DRC) Menu
+* Ctrl+Shift+L  - Toggle length tuner values / show routing length values
+
+--------------------------------------------------------------------------------
+4. TROUBLESHOOTING CHECKLIST
+--------------------------------------------------------------------------------
+- Skew Error? Use `Tools` -> `Length Tuner` to add meander patterns.
+- Impedance out of spec? Verify dielectric parameters in the stackup dialog.
+- DRC clearance violations? Check if snap-to-grid is causing off-center routing.
+================================================================================

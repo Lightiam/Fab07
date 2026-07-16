@@ -1,0 +1,20 @@
+Designator,Description,Manufacturer,MPN,Qty
+U1,"TFLN Mach-Zehnder Modulator, 15mm, Vpi<=1.8V, 100GHz",NTT / iXblue,TFLN-MZM-400G-C,1
+U2,"DFB Laser Diode, 1550nm, 100mW, C-band tunable",NeoPhotonics,TLN-1550-100,1
+U3,"High-Speed Photodetector, 100GHz, InGaAs PIN",Finisar / II-VI,XPDV4120R,1
+U4,"RF Driver IC, 100GHz, differential, 50ohm, 3.3V",Analog Devices,HMC8410,1
+U5,"Laser Driver IC, 2.5Gbps, APC, <100mA, SOP-8",Maxim Integrated,MAX3669,1
+U6,"Low-Noise LDO, 1.8V, 1A, 4.17uVrms, PSRR 72dB",Texas Instruments,TPS7A4700,1
+U7,"Buck Converter, 3.3V, 4A, 2MHz, 95%, DFN-10",Analog Devices,LT8614,1
+U8,"TEC Controller, Peltier, +/-5A, 0.001C stable",Wavelength,MPT5000,1
+U9,"SerDes IC, 400G PAM4, 100Gbaud retimer, FEC",Broadcom,BCM84881,1
+U10,"Clock Generator, 100GHz, <50fs jitter, 12-Out",Silicon Labs,Si5395A,1
+C1-C20,MLCC 10uF 50V X7R 1210,Murata,GRM32ER71H106KA12,20
+C21-C40,MLCC 0.1uF 25V X7R 0603,Murata,GRM188R71E104KA01,20
+C41-C2095,MLCC 0.1uF 25V X7R 0603,Murata,GRM188R71E104KA01,2055
+R1-R10,Thin Film Resistor 50ohm 0.1% 0.1W 0603,Vishay,TNPW060350R0BEEN,10
+L1-L4,RF Inductor 10nH Q>40@2GHz 0603,Coilcraft,0603CS-10NXJLW,4
+J1,PCIe x16 Edge Connector Gen5 32GT/s Gold,TE Connectivity,2-2013289-6,1
+J2-J3,LC/APC Fiber Connector SM APC,Senko,SN-LC-APC-SM,2
+J4-J7,SMA RF Connector 50GHz 50ohm edge launch,Amphenol,132289,4
+PCB1,"15-Layer Rogers RO4350B PCB, IPC Class 3",Advanced Circuits,CUSTOM-15L-RF,1
