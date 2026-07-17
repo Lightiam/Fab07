@@ -229,11 +229,25 @@ Before fab submission, verify:
 - [ ] Mask data preparation (OASIS) complete
 - [ ] Final design review and signoff documentation
 
+## Production Materials & Specifications
+
+### LightRail AI Platform Documentation
+- **docs/LIGHTRAIL_GEN3_ASIC_FAB_SPEC.pdf** - Complete Gen3 ASIC tapeout specification with electrical, thermal, and interface requirements
+- **docs/VRM_BRINGUP_GUIDE.md** - 24-phase DrMOS power delivery and voltage regulator bring-up protocol with unpowered and powered verification procedures
+
+### NCE Reference Implementation
+- **nce_reference/** - Complete Neural Calibration Engine (NCE) design package including:
+  - RTL for 128-lane SIMD MAC with BF16→Q8.8 fixed-point conversion
+  - TFLN (Thin-Film Lithium Niobate) optical driver interface
+  - Hardware Abstraction Layer (C HAL) for register access and calibration
+  - PCB design materials (BOM, routing guides, characteristics)
+
 ## References and Resources
 
 ### ASIC Design Guides
 - AnyASilicon's "Ridiculously Smart Guide to Developing Your Own ASIC"
 - Perplexity's comprehensive ASIC GPU materials guide (this repo's source document)
+- LightRail Gen3 ASIC Fab Specification (see docs/)
 
 ### Open-Source GPU Projects
 - **VeriGPU** (GitHub): ML-focused GPU in Verilog, RISC-V based, ASIC tape-out target
